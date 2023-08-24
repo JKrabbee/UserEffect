@@ -1,29 +1,31 @@
 import FlexContainerStyled from "../Shared/FlexContainerStyled";
 import Story from "./Story";
+import storyGuilherme from "/assets/guilherme.png";
 import storyJoao from "/assets/joao.jpeg";
 import storyRafael from "/assets/rafael.png";
 
 export interface Perfis {
-  nome: string;
+  username: string;
   img: string;
-  id: number;
 }
 
 const perfis: Perfis[] = [
   {
-    nome: "Joao",
+    username: "JKrabbee",
     img: storyJoao,
-    id: 1,
   },
   {
-    nome: "Rafael",
+    username: "RafaelApolinario",
     img: storyRafael,
-    id: 2,
+  },
+  {
+    username: "guilhermebari",
+    img: storyGuilherme,
   },
 ];
 
 interface HeaderProps {
-  funcao: (id: number) => void;
+  funcao: (username: string) => void;
 }
 
 function Header(props: HeaderProps) {
@@ -32,8 +34,8 @@ function Header(props: HeaderProps) {
       {perfis.map((perfil) => (
         <Story
           foto={perfil.img}
-          nome={perfil.nome}
-          funcao={() => props.funcao(perfil.id)}
+          nome={perfil.username}
+          funcao={() => props.funcao(perfil.username)}
         />
       ))}
     </FlexContainerStyled>
